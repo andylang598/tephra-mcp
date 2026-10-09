@@ -1,0 +1,6 @@
+{
+  "claude_code": "claude mcp add --transport http tephra https://tephra.obsidian-metrics.com/mcp",
+  "cursor": { "mcpServers": { "tephra": { "url": "https://tephra.obsidian-metrics.com/mcp" } } },
+  "windsurf": { "mcpServers": { "tephra": { "serverUrl": "https://tephra.obsidian-metrics.com/mcp" } } },
+  "gemini_cli": "gemini mcp add --transport http tephra https://tephra.obsidian-metrics.com/mcp"
+}

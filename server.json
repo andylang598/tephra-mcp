@@ -1,0 +1,18 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.obsidian-metrics/tephra",
+  "title": "Tephra",
+  "description": "Shared private memory for every AI you connect: recall, search, remember. OAuth sign-in.",
+  "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/andylang598/tephra-mcp",
+    "source": "github"
+  },
+  "websiteUrl": "https://tephra.obsidian-metrics.com/connect",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://tephra.obsidian-metrics.com/mcp"
+    }
+  ]
+}
