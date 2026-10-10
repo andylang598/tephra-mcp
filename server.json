@@ -1,6 +1,6 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "com.obsidian-metrics/tephra",
+  "name": "io.github.andylang598/tephra",
   "title": "Tephra",
   "description": "Memory for every AI you connect, tied to your account: recall, search, remember. OAuth sign-in.",
   "version": "1.0.0",
