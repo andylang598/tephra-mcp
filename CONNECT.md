@@ -33,7 +33,7 @@ then run `claude`, type `/mcp`, pick `tephra`, choose Authenticate. (A key varia
 **Other:** VS Code (MCP: Add Server > HTTP), Gemini CLI (`gemini mcp add --transport http tephra https://tephra.obsidian-metrics.com/mcp`), Windsurf (`"tephra": { "serverUrl": "https://tephra.obsidian-metrics.com/mcp" }`), Zed, Le Chat, Perplexity: see https://tephra.obsidian-metrics.com/connect.
 
 ## Limits
-- Tephra is a **paid** product: no free tier. Access is Premium ($19/mo via the Skool community, $29/mo or $290/yr direct) or a $399 one-time Tephra seat; no usage metering.
+- Tephra is a **paid** product: no free tier. Access is Premium ($19/mo via the Skool community, $29/mo direct) or a $399 one-time Tephra seat; no usage metering.
 - The MCP tools return ranked records only; the "you may be missing" completeness alert, summary sheet and push directive are not passed through MCP tools.
 - The AI must call `tephra_remember`; Tephra does not auto-capture chats and has no Gmail/Slack/Drive connectors.
 - No image/audio ingest. Members cannot publish into the shared library.

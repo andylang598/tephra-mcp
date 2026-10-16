@@ -20,7 +20,7 @@ Documentation and config examples for **Tephra**, a hosted remote MCP server: on
 - **Remote streamable-HTTP MCP, hosted on Cloudflare Workers;** nothing to install or self-host.
 
 ## Limits
-- Tephra is a **paid** product: no free tier. Access is Premium ($19/mo via the Skool community, $29/mo or $290/yr direct) or a $399 one-time Tephra seat; no usage metering.
+- Tephra is a **paid** product: no free tier. Access is Premium ($19/mo via the Skool community, $29/mo direct) or a $399 one-time Tephra seat; no usage metering.
 - The MCP tools return ranked records only; the "you may be missing" completeness alert, summary sheet and push directive are not passed through MCP tools.
 - The AI must call `tephra_remember`; Tephra does not auto-capture chats and has no Gmail/Slack/Drive connectors.
 - No image/audio ingest. Members cannot publish into the shared library.
