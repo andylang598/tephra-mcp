@@ -1,5 +1,7 @@
 # Tephra MCP
 
+[![Tephra MCP server](https://mcprush.com/badge/tephra-mcp/card.svg)](https://mcprush.com/to/tephra-mcp?ref=badge)
+
 Documentation and config examples for **Tephra**, a hosted remote MCP server: one memory your AI tools share, tied to your account. Tools you connect recall from it and add to it. This repository contains no source code; Tephra is a paid hosted service by Obsidian Metrics.
 
 - Server URL (Streamable HTTP): `https://tephra.obsidian-metrics.com/mcp`
