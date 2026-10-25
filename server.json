@@ -2,13 +2,13 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.andylang598/tephra",
   "title": "Tephra",
-  "description": "Memory for every AI you connect, tied to your account: recall, search, remember. OAuth sign-in.",
-  "version": "1.0.0",
+  "description": "Shared memory for your AI tools: top-5 recall 98.9% on answerable LongMemEval-S questions. Premium.",
+  "version": "1.0.1",
   "repository": {
     "url": "https://github.com/andylang598/tephra-mcp",
     "source": "github"
   },
-  "websiteUrl": "https://tephra.obsidian-metrics.com/connect",
+  "websiteUrl": "https://obsidian-metrics.com/tephra?utm_source=mcp-registry&utm_medium=directory&utm_campaign=mcp-listings",
   "remotes": [
     {
       "type": "streamable-http",
