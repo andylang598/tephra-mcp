@@ -2,7 +2,7 @@
 
 [![Tephra MCP server](https://mcprush.com/badge/tephra-mcp/card.svg)](https://mcprush.com/to/tephra-mcp?ref=badge)
 
-Documentation and config examples for **Tephra**, a hosted remote MCP server: one memory your AI tools share, tied to your account. Tools you connect recall from it and add to it. This repository contains no source code; Tephra is a paid hosted service by Obsidian Metrics.
+Documentation and config examples for **Tephra**, a hosted remote MCP server: one memory your AI tools share, tied to your account. Tools you connect recall from it and add to it. Besides documentation and configuration examples, it holds a small optional stdio bridge (`bin/`, `test/`, `package.json`, MIT) for AI apps that only speak stdio. Tephra itself is a paid hosted service by Obsidian Metrics.
 
 - Server URL (Streamable HTTP): `https://tephra.obsidian-metrics.com/mcp`
 - Connecting: add the server URL. Clients that support MCP OAuth sign in with your Obsidian account
@@ -23,7 +23,21 @@ Documentation and config examples for **Tephra**, a hosted remote MCP server: on
 - **Shared library:** public knowledge (no member data), grown hourly from sources such as arXiv, PubMed, Federal Register and Crossref/OpenAlex; recall draws on it alongside your own memories.
 - **Control and audit:** up to 10 active AI keys, each revocable, optionally read-only, with its own activity log; a connected-apps panel to disconnect OAuth apps; edit history, edit/delete/contest a memory, data export (app).
 - **Prompt-injection hardening** on key/MCP results: invisible characters stripped, records capped at 4000 characters, results wrapped as notes-not-instructions.
-- **Remote streamable-HTTP MCP, hosted on Cloudflare Workers;** nothing to install or self-host.
+- **Remote streamable-HTTP MCP, hosted on Cloudflare Workers;** nothing to self-host; the stdio bridge below is optional.
+
+## Optional stdio bridge
+Most AI apps connect to Tephra directly with the server URL above. For an app that only speaks stdio, this repository ships a bridge (`bin/tephra-mcp.mjs`, MIT) that starts [mcp-remote](https://www.npmjs.com/package/mcp-remote) (pinned to 0.15.2, published 2026-10-20 with GitHub provenance) pointed at `https://tephra.obsidian-metrics.com/mcp`:
+
+```
+npx -y github:andylang598/tephra-mcp#v1.0.0
+```
+
+Only this `github:` form is official; the names `tephra-mcp` and `tephra-mcp-bridge` are not registered on npm. Use the tag, not the default branch: npm ignores this repository's lockfile for git installs, so mcp-remote is exact but its own dependencies resolve within their version ranges when you install (the committed `package-lock.json` applies to `npm ci` from a clone). `npx -y github:andylang598/tephra-mcp#v1.0.0 --print-config` shows the one URL the bridge would use without connecting.
+
+- Sign-in is Tephra's own OAuth 2.1 flow, run by mcp-remote in your browser. The bridge's own code never handles a password, key or token. mcp-remote keeps the sign-in tokens it receives in `~/.mcp-auth` on your machine (owner-only file mode); delete that folder to sign out.
+- The bridge accepts one MCP URL, `https://tephra.obsidian-metrics.com/mcp`, and refuses any other host, scheme, port or path, and any argument except `--print-config`. The child process inherits your environment, so proxy and certificate settings you have set apply to it.
+- The mcprush security grade for Tephra covers this bridge's source and its dependency tree as installed. It is not a review of the Tephra service, which runs at its own address.
+- Tests: `npm test` from a clone (offline). Node 20.18.1 or newer.
 
 ## Limits
 - Tephra is a **paid** product: no free tier. Access is Premium ($19/mo at the member rate through the Obsidian Metrics community, $29/mo direct) or a $399 one-time Tephra seat with no subscription; no usage metering. Keys and connections pause if the membership lapses.

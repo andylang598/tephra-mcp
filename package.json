@@ -1,0 +1,38 @@
+{
+  "name": "tephra-mcp-bridge",
+  "version": "1.0.0",
+  "description": "stdio bridge to Tephra, the hosted shared-memory MCP server at https://tephra.obsidian-metrics.com/mcp, for AI apps that only speak stdio. Wraps mcp-remote; refuses any other host.",
+  "type": "module",
+  "bin": {
+    "tephra-mcp-bridge": "bin/tephra-mcp.mjs",
+    "tephra-mcp": "bin/tephra-mcp.mjs"
+  },
+  "files": [
+    "bin",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20.18.1"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andylang598/tephra-mcp.git"
+  },
+  "homepage": "https://obsidian-metrics.com/tephra",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "memory",
+    "tephra",
+    "stdio",
+    "bridge"
+  ],
+  "dependencies": {
+    "mcp-remote": "0.15.2"
+  },
+  "scripts": {
+    "test": "node --test test/bridge.test.mjs"
+  }
+}
