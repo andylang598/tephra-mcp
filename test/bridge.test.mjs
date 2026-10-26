@@ -48,15 +48,15 @@ test("package.json pins mcp-remote exactly and has no install scripts", () => {
   assert.deepEqual(Object.keys(pkg.dependencies), ["mcp-remote"]);
 });
 test("the bin starts and prints the config without connecting; an evil URL exits 2 with a clean message even under --print-config", () => {
-  const r = spawnSync(process.execPath, [BIN, "--print-config"], { encoding: "utf8", env: { ...process.env, TEPHRA_MCP_URL: "" } });
+  const r = spawnSync(process.execPath, [BIN, "--print-config"], { encoding: "utf8", timeout: 15000, killSignal: "SIGKILL", env: { ...process.env, TEPHRA_MCP_URL: "" } });
   assert.equal(r.status, 0, r.stderr);
   assert.equal(JSON.parse(r.stdout).url, DEFAULT_URL);
-  const evil = spawnSync(process.execPath, [BIN], { encoding: "utf8", env: { ...process.env, TEPHRA_MCP_URL: "https://evil.example/mcp" } });
+  const evil = spawnSync(process.execPath, [BIN], { encoding: "utf8", timeout: 15000, killSignal: "SIGKILL", env: { ...process.env, TEPHRA_MCP_URL: "https://evil.example/mcp" } });
   assert.equal(evil.status, 2);
   assert.match(evil.stderr, /refused: this bridge only connects to tephra\.obsidian-metrics\.com/);
-  const extra = spawnSync(process.execPath, [BIN, "https://evil.example/mcp"], { encoding: "utf8" });
+  const extra = spawnSync(process.execPath, [BIN, "https://evil.example/mcp"], { encoding: "utf8", timeout: 15000, killSignal: "SIGKILL" });
   assert.equal(extra.status, 2);
-  const evilPrint = spawnSync(process.execPath, [BIN, "--print-config"], { encoding: "utf8", env: { ...process.env, TEPHRA_MCP_URL: "https://evil.example/mcp" } });
+  const evilPrint = spawnSync(process.execPath, [BIN, "--print-config"], { encoding: "utf8", timeout: 15000, killSignal: "SIGKILL", env: { ...process.env, TEPHRA_MCP_URL: "https://evil.example/mcp" } });
   assert.equal(evilPrint.status, 2);
   assert.doesNotMatch(evilPrint.stderr, /at .*\.mjs:\d+/, "no stack trace");
 });
