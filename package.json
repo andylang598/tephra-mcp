@@ -4,6 +4,7 @@
   "description": "stdio bridge to Tephra, the hosted shared-memory MCP server at https://tephra.obsidian-metrics.com/mcp, for AI apps that only speak stdio. Wraps mcp-remote; refuses any other host.",
   "type": "module",
   "bin": {
+    "tephra-mcp-bridge": "bin/tephra-mcp.mjs",
     "tephra-mcp": "bin/tephra-mcp.mjs"
   },
   "files": [
@@ -12,7 +13,7 @@
     "LICENSE"
   ],
   "engines": {
-    "node": ">=18"
+    "node": ">=20.18.1"
   },
   "license": "MIT",
   "repository": {
